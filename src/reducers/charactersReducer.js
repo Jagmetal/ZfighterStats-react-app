@@ -5,15 +5,18 @@ import { createCharacter } from './helpers';
 function characters(state = characters_json, action) {
     switch(action.type) {
         case ADD_CHARACTER:
-            let characters = state.filter(item => item.id !== action.id);
-            return characters;
+            // Use a different variable name, like 'updatedCharacters'
+            let updatedCharacters = state.filter(item => item.id !== action.id);
+            return updatedCharacters;
         case REMOVE_CHARACTER:
-            characters = [...state, createCharacter(action.id)]
-            return characters;    
+            // Use a different variable name, like 'newCharacters'
+            let newCharacters = [...state, createCharacter(action.id)]
+            return newCharacters;    
         default:
             return state;
     }
 }
+
 
 
 export default characters;
